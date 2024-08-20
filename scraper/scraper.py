@@ -6,7 +6,8 @@ from config.constants import URL, LIMIT
 class WebScraper:
     def __init__(self, url):
         """
-        Initializes the WebScraper with the provided URL and an empty list of entries.
+        Initializes the WebScraper with the provided URL
+        and an empty list of entries.
 
         Parameters:
         -----------
@@ -30,10 +31,12 @@ class HackerNewsScraper(WebScraper):
 
     def fetch(self):
         """
-        Fetches the first `LIMIT` entries from Hacker News, extracting the rank, title, points, and comments.
+        Fetches the first `LIMIT` entries from Hacker News,
+        extracting the rank, title, points, and comments.
 
-        This method sends an HTTP GET request to the specified Hacker News URL, parses the HTML content using
-        BeautifulSoup, and extracts the relevant details for each of the top entries on the page.
+        This method sends an HTTP GET request to the specified Hacker News URL,
+        parses the HTML content using BeautifulSoup and extracts the relevant
+        details for each of the top entries on the page.
 
         The extracted details include:
         - `number`: The rank of the entry on the page.
@@ -44,7 +47,8 @@ class HackerNewsScraper(WebScraper):
         Returns:
         --------
         list
-            A list of dictionaries, where each dictionary contains the details of a Hacker News entry.
+            A list of dictionaries,
+            where each dictionary contains the details of a Hacker News entry.
         """
         response = requests.get(self.url)
         soup = BeautifulSoup(response.text, 'html.parser')
